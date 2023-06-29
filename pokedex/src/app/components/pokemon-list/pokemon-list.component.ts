@@ -39,7 +39,21 @@ export class PokemonListComponent {
     this.search()
   }
 
+  insert(){
+
+
+//    this.pokemonService.getPokemon(1)
+//      .subscribe((pokemon)=> this.pokemonService.createPokemon(pokemon))
+  }
+
   search(){
-    let pokemons = this.pokemonService.getPokemonDetailsFromCriteria({limit:this.limit, offset:this.offset}).pipe().subscribe(data => data.subscribe(data => this.pokemons=data))
+    this.pokemonService.getPokemons()
+      .then((data) =>
+        data.forEach(doc => doc.data()))
+
+    /**let pokemons = this.pokemonService.getPokemonDetailsFromCriteria({limit:this.limit, offset:this.offset})
+      .subscribe(data => data
+        .subscribe(data => this.pokemons=data))
+    **/
   }
 }

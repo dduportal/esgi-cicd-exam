@@ -41,3 +41,40 @@ Plusieurs symboles pour intéragir avec le template :
 Les pipes permettent de transformer les données pour la vue.
 Ce sont des fonctions prenant des valeurs de nos expressions en input et en affichant la sortie directement au niveau du template
 
+
+// Import the functions you need from the SDKs you need
+
+import { initializeApp } from "firebase/app";
+
+// TODO: Add SDKs for Firebase products that you want to use
+
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+
+// Your web app's Firebase configuration
+
+const firebaseConfig = {
+
+apiKey: "AIzaSyDpEwMaowo1kWp0go96kf2AsBreVRY-M3M",
+
+authDomain: "pokedexesgi.firebaseapp.com",
+
+projectId: "pokedexesgi",
+
+storageBucket: "pokedexesgi.appspot.com",
+
+messagingSenderId: "716410472706",
+
+appId: "1:716410472706:web:50f30d652acf6efb8f5a1b"
+
+};
+
+
+// Initialize Firebase
+
+const app = initializeApp(firebaseConfig);
+
+
+
+
+npm install firebase

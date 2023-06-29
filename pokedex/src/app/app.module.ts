@@ -13,7 +13,15 @@ import { PokemonDetailComponent } from './components/pokemon-detail/pokemon-deta
 import { PokemonCardComponent } from './components/pokemon-card/pokemon-card.component';
 import { PokemonSearchCriteriaComponent } from './components/pokemon-search-criteria/pokemon-search-criteria.component';
 import { PokemonSearchPageComponent } from './components/pokemon-search-page/pokemon-search-page.component';
-import { TempComponent } from './temp/temp.component';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideAuth,getAuth } from '@angular/fire/auth';
+import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+import { LoginPageComponent } from './components/auth/login-page/login-page.component';
+import { SignupPageComponent } from './components/auth/signup-page/signup-page.component';
+import { InputBaseComponent } from './components/core/input-base/input-base.component';
+import { ButtonBaseComponent } from './components/core/button-base/button-base.component';
+import {FIREBASE_OPTIONS} from "@angular/fire/compat";
 
 @NgModule({
   declarations: [
@@ -25,16 +33,22 @@ import { TempComponent } from './temp/temp.component';
     PokemonCardComponent,
     PokemonSearchCriteriaComponent,
     PokemonSearchPageComponent,
-    TempComponent
+    LoginPageComponent,
+    SignupPageComponent,
+    InputBaseComponent,
+    ButtonBaseComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgOptimizedImage,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideAuth(() => getAuth()),
+    provideFirestore(() => getFirestore())
   ],
-  providers: [],
+  providers: [{ provide: FIREBASE_OPTIONS, useValue: environment.firebase }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

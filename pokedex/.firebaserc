@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "pokedexesgi"
+  },
+  "targets": {
+    "pokedexesgi": {
+      "hosting": {
+        "pokedex": [
+          "pokedexesgi"
+        ]
+      }
+    }
+  }
+}

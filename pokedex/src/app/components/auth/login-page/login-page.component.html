@@ -1,0 +1,20 @@
+<div class="grid justify-items-center items-center h-full">
+  <div class="flex flex-col space-y-4 rounded-2xl p-10 border border-secondary ">
+    <p class="text-3xl mb-10">
+      Login
+    </p>
+    <div class="flex flex-col">
+      <label for="email">Email</label>
+      <input id="email" [(ngModel)]="email" class="w-[300px] shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" >
+    </div>
+    <div class="flex flex-col">
+      <label for="password">Password</label>
+      <input id="password" [(ngModel)]="password" class="w-[300px] shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" >
+    </div>
+    <p class="text-red-800">{{error}}</p>
+    <div class="flex flex-row justify-between items-baseline">
+      <app-button-base  value="Login" (click)="signInWithEmailAndPassword()"></app-button-base>
+        <a routerLink="/signup" routerLinkActive="active" class="text-sm underline">Go to signup</a>
+    </div>
+  </div>
+</div>
