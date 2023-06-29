@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {catchError, forkJoin, map, mergeMap, Observable, of, throwError} from 'rxjs';
-import {NamedAPIResource, NamedAPIResourceList, Pokemon} from "pokeapi-types";
+import {PokeAPI} from "pokeapi-types";
 
 export interface PokemonServiceCriteria {
   limit? : number,
@@ -28,8 +28,8 @@ export class PokemonService {
       parameters += 'offset=' + criteria.offset + '&'
     }
 
-    let pokemons : Pokemon[] = []
-    return this.http.get<NamedAPIResourceList>(`${this.pokemonUrl}pokemon${parameters}`).pipe(
+    let pokemons : PokeAPI.Pokemon[] = []
+    return this.http.get<PokeAPI.NamedAPIResourceList>(`${this.pokemonUrl}pokemon${parameters}`).pipe(
       map(response => response.results),
       map(pokemons => {
         const pokemonObservables = pokemons.map(pokemon => {
@@ -40,8 +40,8 @@ export class PokemonService {
     );
   }
 
-  getAllPokemons(): Observable<NamedAPIResource[]> {
-    return this.http.get<NamedAPIResourceList>(`${this.pokemonUrl}pokemon?limit=10000`).pipe(
+  getAllPokemons(): Observable<PokeAPI.NamedAPIResource[]> {
+    return this.http.get<PokeAPI.NamedAPIResourceList>(`${this.pokemonUrl}pokemon?limit=10000`).pipe(
       map(response => response.results)
     );
   }
@@ -63,7 +63,7 @@ export class PokemonService {
     }
   }
 
-  getAllPokemonDetails(): Observable<Pokemon[]> {
+  getAllPokemonDetails(): Observable<PokeAPI.Pokemon[]> {
     return this.getAllPokemons().pipe(
       mergeMap(pokemons => {
         const pokemonObservables = pokemons.map(pokemon => {

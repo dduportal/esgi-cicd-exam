@@ -1,10 +1,10 @@
 import {Component, Input} from '@angular/core';
 import {ajax} from "rxjs/internal/ajax/ajax";
 import {PokemonService} from "../../services/pokemon.service";
-import {NamedAPIResourceList, Pokemon} from "pokeapi-types";
 import {offsetSegment} from "@angular/compiler-cli/src/ngtsc/sourcemaps/src/segment_marker";
 import {data} from "autoprefixer";
 import {forkJoin} from "rxjs";
+import {PokeAPI} from "pokeapi-types";
 
 @Component({
   selector: 'app-pokemon-list',
@@ -15,7 +15,7 @@ export class PokemonListComponent {
   pokemonService;
 
   name = '';
-  pokemons : Pokemon[] = [];
+  pokemons : PokeAPI.Pokemon[] = [];
 
   offset = 0;
   limit = 20;

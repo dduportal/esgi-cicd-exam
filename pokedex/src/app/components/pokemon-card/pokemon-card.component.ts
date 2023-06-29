@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {Pokemon} from "pokeapi-types";
+import {PokeAPI} from "pokeapi-types";
 
 @Component({
   selector: 'app-pokemon-card',
@@ -7,7 +7,7 @@ import {Pokemon} from "pokeapi-types";
   styleUrls: ['./pokemon-card.component.css']
 })
 export class PokemonCardComponent {
-  @Input({required: true}) pokemon!: Pokemon;
+  @Input({required: true}) pokemon!: PokeAPI.Pokemon;
 
 
   testt(){
