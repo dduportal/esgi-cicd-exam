@@ -1,6 +1,7 @@
 import {Component, inject} from '@angular/core';
 import {Auth, createUserWithEmailAndPassword} from "@angular/fire/auth";
 import {auth} from "firebaseui";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-signup-page',
@@ -13,11 +14,15 @@ export class SignupPageComponent {
   email = '';
   password = '';
 
+  constructor(
+    public router: Router,
+  ) {}
+
   createWithEmailAndPassword(){
     createUserWithEmailAndPassword(this.auth , this.email, this.password)
       .then((userCredential) => {
         const user = userCredential.user;
-
+        this.redirectToSite()
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -25,5 +30,9 @@ export class SignupPageComponent {
 
       })
 
+  }
+
+  redirectToSite(){
+    this.router.navigate(['/'])
   }
 }

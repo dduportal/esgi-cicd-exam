@@ -1,10 +1,6 @@
-import {Component, Input} from '@angular/core';
-import {ajax} from "rxjs/internal/ajax/ajax";
-import {PokemonService} from "../../services/pokemon.service";
-import {offsetSegment} from "@angular/compiler-cli/src/ngtsc/sourcemaps/src/segment_marker";
-import {data} from "autoprefixer";
-import {forkJoin} from "rxjs";
+import {Component} from '@angular/core';
 import {PokeAPI} from "pokeapi-types";
+import {LocalPokemonService} from "../../services/local-pokemon.service";
 
 @Component({
   selector: 'app-pokemon-list',
@@ -12,48 +8,57 @@ import {PokeAPI} from "pokeapi-types";
   styleUrls: ['./pokemon-list.component.css']
 })
 export class PokemonListComponent {
-  pokemonService;
-
   name = '';
   pokemons : PokeAPI.Pokemon[] = [];
+  paginatedPokemons : PokeAPI.Pokemon[] = [];
 
   offset = 0;
-  limit = 20;
+  limit = 10;
 
-  constructor(pokemonService: PokemonService) {
-    this.pokemonService = pokemonService;
+  hasNextElements = false;
+  hasPreviousElements = false;
 
+  constructor(private localPokemonService: LocalPokemonService) {
     this.search();
   }
 
   precedent(){
     this.offset -= this.limit
-    if(this.offset < 0){
-      this.offset = 0
-    }
-    this.search()
+    this.updatePaginatedPokemons()
   }
 
   suivant(){
     this.offset += this.limit
-    this.search()
+    this.updatePaginatedPokemons()
   }
 
-  insert(){
+  updatePaginatedPokemons(){
+    if(this.offset > this.pokemons.length || this.offset < 0){
+      this.offset = 0
+    }
 
+    let end = this.offset + this.limit
+    if(end > this.pokemons.length){
+      end = this.pokemons.length
+    }
 
-//    this.pokemonService.getPokemon(1)
-//      .subscribe((pokemon)=> this.pokemonService.createPokemon(pokemon))
+    this.paginatedPokemons = this.pokemons.slice(this.offset, end)
+    this.checkForPreviousAndNextElements()
   }
+
+  checkForPreviousAndNextElements(){
+    this.hasNextElements = this.offset + this.limit < this.pokemons.length;
+    this.hasPreviousElements = this.offset != 0;
+  }
+
 
   search(){
-    this.pokemonService.getPokemons()
-      .then((data) =>
-        data.forEach(doc => doc.data()))
-
-    /**let pokemons = this.pokemonService.getPokemonDetailsFromCriteria({limit:this.limit, offset:this.offset})
-      .subscribe(data => data
-        .subscribe(data => this.pokemons=data))
-    **/
+    this.localPokemonService
+      .getPokemonsByCriteria({name: this.name}, 0,0)
+      .subscribe(pokemons => {
+          this.offset = 0
+          this.pokemons = pokemons
+          this.updatePaginatedPokemons()
+        })
   }
 }

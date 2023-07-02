@@ -36,7 +36,7 @@ import {FIREBASE_OPTIONS} from "@angular/fire/compat";
     LoginPageComponent,
     SignupPageComponent,
     InputBaseComponent,
-    ButtonBaseComponent
+    ButtonBaseComponent,
   ],
   imports: [
     BrowserModule,

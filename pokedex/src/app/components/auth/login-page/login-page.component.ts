@@ -40,7 +40,7 @@ export class LoginPageComponent {
   }
 
   redirectToSite(){
-    this.router.navigate(['/test'])
+    this.router.navigate(['/'])
   }
 
 }

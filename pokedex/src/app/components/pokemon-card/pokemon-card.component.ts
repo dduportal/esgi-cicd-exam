@@ -9,8 +9,4 @@ import {PokeAPI} from "pokeapi-types";
 export class PokemonCardComponent {
   @Input({required: true}) pokemon!: PokeAPI.Pokemon;
 
-
-  testt(){
-    console.log("sprite :");
-  }
 }

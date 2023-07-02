@@ -13,7 +13,7 @@ const  redirectUnauthorizedToLogin = () =>  redirectUnauthorizedTo(['login']);
 const routes: Routes = [
   { path: '', component: PokemonListComponent, canActivate:[AuthGuard], data: {authGuardPipe: redirectUnauthorizedToLogin}},
   { path: 'login', component: LoginPageComponent, canActivate: [AuthGuard], data: {authGuardPipe:  redirectLoggedInToSite} },
-  { path: 'signup', component: SignupPageComponent, canActivate: [AuthGuard], data: {authGuardPipe:  redirectLoggedInToSite} },
+  { path: 'signup', component: SignupPageComponent, canActivate: [AuthGuard], data: {authGuardPipe:  redirectLoggedInToSite} }
 ];
 
 @NgModule({
