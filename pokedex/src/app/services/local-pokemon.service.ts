@@ -1,9 +1,9 @@
 import {inject, Injectable} from '@angular/core';
 import {PokeAPI} from "pokeapi-types";
-import {PokeApiService} from "./poke.api.service";
+import {PokeApiService} from "./poke-api.service";
 import {BehaviorSubject, map, Observable, of} from "rxjs";
 
-interface PokemonCriteria {
+export interface PokemonCriteria {
   name? : string,
 
 }
@@ -30,9 +30,7 @@ export class LocalPokemonService {
    * @param limit limite d'élements
    * @param offset offset de selection
    */
-  getPokemonsByCriteria(criteria: PokemonCriteria,
-                        limit: number,
-                        offset: number){
+  getPokemonsByCriteria(criteria: PokemonCriteria){
     return this.pokemons.pipe(
       map(pokemons => pokemons.filter(
         pokemon => {

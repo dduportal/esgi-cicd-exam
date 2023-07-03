@@ -1,8 +1,16 @@
-<div clas="flex">
-  <div>
-
+<div class="bg-tertiary h-full px-[400px] py-20">
+  <div class="space-y-3">
+    <app-pokemon-search-criteria (criteria)="updateCriteria($event)"></app-pokemon-search-criteria>
+    <div>
+      <button [disabled]="!hasPreviousElements" (click)="precedent()" class="disabled:bg-gray-500 bg-secondary hover:bg-secondaryDark active:bg-secondaryDarker text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
+        Precedent
+      </button>
+      <button [disabled]="!hasNextElements" (click)="suivant()" class="disabled:bg-gray-500 bg-secondary hover:bg-secondaryDark active:bg-secondaryDarker text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
+        Suivant
+      </button>
+    </div>
   </div>
   <div>
-
+    <app-pokemon-list [pokemons]="paginatedPokemons"></app-pokemon-list>
   </div>
 </div>

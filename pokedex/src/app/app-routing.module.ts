@@ -4,6 +4,7 @@ import {PokemonListComponent} from "./components/pokemon-list/pokemon-list.compo
 import {LoginPageComponent} from "./components/auth/login-page/login-page.component";
 import {SignupPageComponent} from "./components/auth/signup-page/signup-page.component";
 import {AuthGuard, redirectLoggedInTo,redirectUnauthorizedTo} from "@angular/fire/auth-guard";
+import {PokemonSearchPageComponent} from "./components/pokemon-search-page/pokemon-search-page.component";
 
 
 
@@ -11,7 +12,7 @@ const  redirectLoggedInToSite = () =>  redirectLoggedInTo(['']);
 const  redirectUnauthorizedToLogin = () =>  redirectUnauthorizedTo(['login']);
 
 const routes: Routes = [
-  { path: '', component: PokemonListComponent, canActivate:[AuthGuard], data: {authGuardPipe: redirectUnauthorizedToLogin}},
+  { path: '', component: PokemonSearchPageComponent, canActivate:[AuthGuard], data: {authGuardPipe: redirectUnauthorizedToLogin}},
   { path: 'login', component: LoginPageComponent, canActivate: [AuthGuard], data: {authGuardPipe:  redirectLoggedInToSite} },
   { path: 'signup', component: SignupPageComponent, canActivate: [AuthGuard], data: {authGuardPipe:  redirectLoggedInToSite} }
 ];

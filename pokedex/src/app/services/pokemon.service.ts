@@ -10,7 +10,7 @@ import {
   setDoc,
   writeBatch
 } from "@angular/fire/firestore";
-import {PokeApiService} from "./poke.api.service";
+import {PokeApiService} from "./poke-api.service";
 
 
 
