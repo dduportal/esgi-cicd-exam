@@ -43,4 +43,9 @@ export class LocalPokemonService {
       ))
     )
   }
+
+  getPokemon(id: number) {
+    return this.pokemons.pipe(
+      map(pokemons => pokemons.find(pokemon => pokemon.id == id)))
+  }
 }

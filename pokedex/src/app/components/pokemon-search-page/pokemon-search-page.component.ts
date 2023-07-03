@@ -14,7 +14,7 @@ export class PokemonSearchPageComponent {
   criteria: PokemonCriteria = {}
 
   offset = 0;
-  limit = 10;
+  limit = 12;
 
   hasNextElements = false;
   hasPreviousElements = false;

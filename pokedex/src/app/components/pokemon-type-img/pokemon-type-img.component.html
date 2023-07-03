@@ -1,0 +1,20 @@
+<div [ngSwitch]="pokemonType" class="[&>p]:rounded-2xl [&>p]:border-black [&>p]:px-1 [&>p]:border-2 [&>p]:font-pokemon [&>p]:text-[0.65rem]">
+  <p *ngSwitchCase="'bug'" class="bg-pokeBug">BUG</p>
+  <p *ngSwitchCase="'dark'" class="bg-pokeDark">DARK</p>
+  <p *ngSwitchCase="'dragon'" class="bg-pokeDragon">DRAGON</p>
+  <p *ngSwitchCase="'electric'" class="bg-pokeElectric">ELECT</p>
+  <p *ngSwitchCase="'fairy'" class="bg-pokeFairy">FAIRY</p>
+  <p *ngSwitchCase="'fighting'" class="bg-pokeFighting">FIGHT</p>
+  <p *ngSwitchCase="'fire'" class="bg-pokeFire">FIRE</p>
+  <p *ngSwitchCase="'flying'" class="bg-pokeFlying">FLYING</p>
+  <p *ngSwitchCase="'ghost'" class="bg-pokeGhost">GHOST</p>
+  <p *ngSwitchCase="'ground'" class="bg-pokeGround">GROUND</p>
+  <p *ngSwitchCase="'grass'" class="bg-pokeGrass">GRASS</p>
+  <p *ngSwitchCase="'ice'" class="bg-pokeIce">ICE</p>
+  <p *ngSwitchCase="'normal'" class="bg-pokeNormal">NORMAL</p>
+  <p *ngSwitchCase="'poison'" class="bg-pokePoison">POISON</p>
+  <p *ngSwitchCase="'psychic'" class="bg-pokePsychic">PSY</p>
+  <p *ngSwitchCase="'rock'" class="bg-pokeRock">ROCK</p>
+  <p *ngSwitchCase="'steel'" class="bg-pokeSteel">STEEL</p>
+  <p *ngSwitchCase="'water'" class="bg-pokeWater">WATER</p>
+</div>

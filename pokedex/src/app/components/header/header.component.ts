@@ -37,4 +37,8 @@ export class HeaderComponent {
   private redirectToLogin() {
     this.router.navigate(['/login'])
   }
+
+  redirectToRoot() {
+    this.router.navigate([""])
+  }
 }

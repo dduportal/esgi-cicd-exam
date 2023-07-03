@@ -22,6 +22,8 @@ import { SignupPageComponent } from './components/auth/signup-page/signup-page.c
 import { InputBaseComponent } from './components/core/input-base/input-base.component';
 import { ButtonBaseComponent } from './components/core/button-base/button-base.component';
 import {FIREBASE_OPTIONS} from "@angular/fire/compat";
+import { PokemonTypeImgComponent } from './components/pokemon-type-img/pokemon-type-img.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +39,8 @@ import {FIREBASE_OPTIONS} from "@angular/fire/compat";
     SignupPageComponent,
     InputBaseComponent,
     ButtonBaseComponent,
+    PokemonTypeImgComponent,
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,

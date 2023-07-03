@@ -1,1 +1,9 @@
-<p>pokemon-detail works!</p>
+<div *ngIf="id != undefined">
+  {{id}}
+  <div *ngIf="pokemon != undefined">
+    {{pokemon?.name}}
+  </div>
+</div>
+<div *ngIf="id == undefined">
+  No id !
+</div>

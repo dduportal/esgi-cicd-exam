@@ -1,3 +1,5 @@
-<div *ngFor="let pokemon of pokemons">
-  <app-pokemon-card [pokemon]="pokemon"></app-pokemon-card>
+<div class="grid 2xl:grid-cols-6 xl:grid-cols-4 md:grid-cols-3 sm:grid-cols-1 gap-y-7">
+  <div class="transition hover:scale-110" *ngFor="let pokemon of pokemons">
+    <app-pokemon-card [pokemon]="pokemon"></app-pokemon-card>
+  </div>
 </div>

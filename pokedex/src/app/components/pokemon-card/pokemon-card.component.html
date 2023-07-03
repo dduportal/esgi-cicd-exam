@@ -1,9 +1,25 @@
-<div>
-  <div class="grid grid-cols-2">
-    <div>
-      <img [ngSrc]="pokemon.sprites.front_default" alt="" height="96" width="96">
+<button (click)="goToPokemonDetail()" class="group">
+  <div class="flex flex-col max-w-[192px]">
+    <img class="border-2 border-gray-600 rounded-t-2xl text-center" [ngSrc]="pokemon.sprites.front_default" alt="No data" height="192" width="192">
+    <div class="p-2 h-[130px] flex flex-col border-2 border-t-0 border-gray-600">
+      <div>
+        <p class="text-sm">No. {{pokemon.id}}</p>
+      </div>
+      <div class="mb-2 flex-grow">
+        <p class="text-2xl capitalize group-hover:underline">{{pokemon.name}}</p>
+      </div>
+      <div class="flex flex-row gap-1" >
+
+        <app-pokemon-type-img *ngFor="let type of pokemon.types" [pokemonType]="type.type.name"></app-pokemon-type-img>
+      </div>
     </div>
-    <div>
-    </div>
+
+    <!--
+    <img>{{pokemon.height}}</img>
+    <img>{{pokemon.weight}}</img>
+    <img>{{pokemon.types}}</img>
+    <img>{{pokemon.stats}}</img>
+    <img>{{pokemon.id}}</img>
+    -->
   </div>
-</div>
+</button>
