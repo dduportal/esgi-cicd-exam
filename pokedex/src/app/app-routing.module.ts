@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {PokemonListComponent} from "./components/pokemon-list/pokemon-list.component";
 import {LoginPageComponent} from "./components/auth/login-page/login-page.component";
 import {SignupPageComponent} from "./components/auth/signup-page/signup-page.component";
 import {AuthGuard, redirectLoggedInTo,redirectUnauthorizedTo} from "@angular/fire/auth-guard";

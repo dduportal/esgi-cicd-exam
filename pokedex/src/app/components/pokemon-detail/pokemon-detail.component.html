@@ -1,7 +1,7 @@
 <div *ngIf="id != undefined">
   {{id}}
   <div *ngIf="pokemon != undefined">
-    {{pokemon?.name}}
+    {{pokemon!.name}}
   </div>
 </div>
 <div *ngIf="id == undefined">

@@ -1,6 +1,7 @@
 import {Component, inject} from '@angular/core';
 import {Auth, onAuthStateChanged, signOut} from "@angular/fire/auth";
 import {Router} from "@angular/router";
+import {FavoritePokemonsService} from "../../services/favorite-pokemons.service";
 
 @Component({
   selector: 'app-header',
@@ -9,8 +10,9 @@ import {Router} from "@angular/router";
 })
 export class HeaderComponent {
   auth = inject(Auth)
+  router = inject(Router)
 
-  constructor(private router: Router) {
+  constructor() {
   }
 
   ngOnInit(): void {

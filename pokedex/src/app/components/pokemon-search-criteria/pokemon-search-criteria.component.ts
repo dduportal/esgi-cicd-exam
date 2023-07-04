@@ -8,13 +8,13 @@ import {PokemonCriteria} from "../../services/local-pokemon.service";
 })
 export class PokemonSearchCriteriaComponent {
   @Output()
-  criteria: EventEmitter<PokemonCriteria> = new EventEmitter<PokemonCriteria>();
+  criteriaChange: EventEmitter<PokemonCriteria> = new EventEmitter<PokemonCriteria>();
 
-  criteriaa : PokemonCriteria = {
+  criteria : PokemonCriteria = {
     name: ''
   }
 
   updateCriteria() {
-    this.criteria.emit(this.criteriaa)
+    this.criteriaChange.emit(this.criteria)
   }
 }
