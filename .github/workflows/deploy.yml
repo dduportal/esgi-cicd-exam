@@ -1,0 +1,24 @@
+name: Deploy CI
+
+on:
+    push:
+      tags:
+        - '**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+
+    steps:
+    - uses: actions/checkout@v2 
+
+    - name: Deploy
+      uses: AhsanAyaz/angular-deploy-gh-pages-actions@v1.4.0
+      with:
+        build_configuration: development
+        github_access_token: ${{ secrets.GITHUB_TOKEN }}
+        base_href: /esgi-cicd-exam/
+        deploy_branch: gh-pages
+        angular_dist_build_folder: dist/pokedex
+
