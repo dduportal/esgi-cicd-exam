@@ -15,7 +15,7 @@ A chaque push sur une pull request et sur la branche main, une action se charge 
 ## Manuellement
 ```
 docker run -d -p 4200:80 --name pokedex pokedex
-curl http://localhost:8080
+curl http://localhost:4200
 docker stop pokedex 
 ```
 
