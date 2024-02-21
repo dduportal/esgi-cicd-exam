@@ -1,5 +1,7 @@
 # Exam CI
 
+Il s'agit d'un projet effectué en cours avec une db firebase que je ne lance pas. Je lance uniquement Angular dans le cadre de l'exercice
+
 # Fabriquer l'image
 
 Pour fabriquer l'image docker entrez cette commande :
