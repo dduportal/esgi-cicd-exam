@@ -15,7 +15,7 @@ jobs:
         steps:
         - uses: actions/checkout@v3
         - name: Build Docker image
-          run: docker build . --file Dockerfile --tag pokedex:$(date +%s)
+          run: docker build . -f Dockerfile -t pokedex
 
         - name: Test Docker image
           run: |
