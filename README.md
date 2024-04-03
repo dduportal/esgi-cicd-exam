@@ -25,6 +25,6 @@ docker stop pokedex
 
 Le déploiement s'effectue sur une Github Page lors de la création d'un tag
 
-La convention utilisée est le versionnage sémentique :
+La convention utilisée est le versionnage sémantique :
 
     v(majeure).(mineure).(correction)
